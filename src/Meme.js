@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Meme extends Component {
+    // deleteMe() {
+    //     this.props.triggerDelete(this.props.id)
+    // }
+
     render() {
         return (
             <div className="Meme">
