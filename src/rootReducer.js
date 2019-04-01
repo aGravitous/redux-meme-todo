@@ -1,6 +1,7 @@
 const INITIAL_STATE = { memes: [] };
 
 function rootReducer(state = INITIAL_STATE, action) {
+    console.log("IN REDUCER", state, action);
     let newMemes;
     switch (action.type) {
         case "ADD":
