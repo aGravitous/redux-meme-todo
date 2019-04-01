@@ -17,12 +17,12 @@ class MemeForm extends Component {
         evt.preventDefault();
         // send states up to MemeGenerator to be added to Redux state
         this.props.triggerAdd({...this.state, id: uuid()});
-        // clear state}
-        this.state = {
+        // clear state
+        this.setState({
             topText: "",
             botText: "",
             imgUrl: "",
-        };
+        });
     }
 
     handleChange(evt) {
@@ -35,13 +35,13 @@ class MemeForm extends Component {
     render() {
         return (
             <div>
-                <form className="MemeForm" onSubmit={this.handleSubmit}>
+                <form className="MemeForm" onSubmit={ this.handleSubmit }>
                     <label htmlFor="topText">Top Text</label>
-                    <input name="topText" id="topText" value={ this.state.topText } />
+                    <input name="topText" id="topText" value={ this.state.topText } onChange={ this.handleChange } />
                     <label htmlFor="botText">Bottom Text</label>
-                    <input name="botText" id="botText" value={ this.state.botText } />
+                    <input name="botText" id="botText" value={ this.state.botText } onChange={ this.handleChange } />
                     <label htmlFor="imgUrl">Image URL</label>
-                    <input name="imgUrl" id="imgUrl" value={ this.state.imgUrl } type="url" />
+                    <input name="imgUrl" id="imgUrl" value={ this.state.imgUrl } onChange={ this.handleChange } type="url" />
                     <button>Add Meme</button>
                 </form>
             </div>

@@ -18,6 +18,8 @@ class MemeGenerator extends Component {
         })
     }
 
+    deleteMeme(){}
+
     render() {
         const memes = this.props.memes.map( meme => 
             <Meme triggerDelete={ () => this.deleteMeme(meme.id) } key={ meme.id } data={ meme } />
