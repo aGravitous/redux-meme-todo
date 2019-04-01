@@ -1,16 +1,19 @@
-const INITIAL_STATE = { count: 0 };
+const INITIAL_STATE = { memes: [] };
 
 function rootReducer(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return { ...state, count: state.count + 1 };
+    let newMemes;
+    switch (action.type) {
+        case "ADD":
+            newMemes = [...state.memes, action.payload];
+            return { memes: newMemes };
 
-    case "DECREMENT":
-      return { ...state, count: state.count - 1 };
+        case "DELETE":
+            newMemes = state.memes.filter(m => m.id !== action.payload.id);
+            return { memes: newMemes };
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 }
 
 export default rootReducer;
