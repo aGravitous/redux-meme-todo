@@ -2,15 +2,15 @@ const INITIAL_STATE = { memes: [] };
 
 function rootReducer(state = INITIAL_STATE, action) {
     console.log("IN REDUCER", state, action);
-    let newMemes;
+
     switch (action.type) {
         case "ADD":
-            newMemes = [...state.memes, action.payload];
-            return { memes: newMemes };
+            let addAMeme = [...state.memes, action.payload];
+            return { memes: addAMeme };
 
         case "DELETE":
-            newMemes = state.memes.filter(m => m.id !== action.payload.id);
-            return { memes: newMemes };
+            let deleteAMeme = state.memes.filter(m => m.id !== action.payload.id);
+            return { memes: deleteAMeme };
 
         default:
             return state;

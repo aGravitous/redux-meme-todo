@@ -18,7 +18,13 @@ class MemeGenerator extends Component {
         })
     }
 
-    deleteMeme(){}
+    deleteMeme(id){
+        console.log("IN DELETE MEME", id);
+        this.props.dispatch({
+            type: 'DELETE',
+            payload: { id }
+        });
+    }
 
     render() {
         const memes = this.props.memes.map( meme => 

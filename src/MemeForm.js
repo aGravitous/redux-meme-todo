@@ -37,11 +37,11 @@ class MemeForm extends Component {
             <div>
                 <form className="MemeForm" onSubmit={ this.handleSubmit }>
                     <label htmlFor="topText">Top Text</label>
-                    <input name="topText" id="topText" value={ this.state.topText } onChange={ this.handleChange } />
+                    <input name="topText" id="topText" value={ this.state.topText } onChange={ this.handleChange } required />
                     <label htmlFor="botText">Bottom Text</label>
-                    <input name="botText" id="botText" value={ this.state.botText } onChange={ this.handleChange } />
+                    <input name="botText" id="botText" value={ this.state.botText } onChange={ this.handleChange } required />
                     <label htmlFor="imgUrl">Image URL</label>
-                    <input name="imgUrl" id="imgUrl" value={ this.state.imgUrl } onChange={ this.handleChange } type="url" />
+                    <input name="imgUrl" id="imgUrl" value={ this.state.imgUrl } onChange={ this.handleChange } type="url" required />
                     <button>Add Meme</button>
                 </form>
             </div>
