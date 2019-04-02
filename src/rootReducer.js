@@ -12,6 +12,11 @@ function rootReducer(state = INITIAL_STATE, action) {
             let deleteAMeme = state.memes.filter(m => m.id !== action.payload.id);
             return { memes: deleteAMeme };
 
+        case "UPDATE":
+            let stateMinusUpdated = state.memes.filter(m => m.id !== action.payload.id)
+            let updateMeme = [...stateMinusUpdated, action.payload];
+            return { memes: updateMeme };
+
         default:
             return state;
     }

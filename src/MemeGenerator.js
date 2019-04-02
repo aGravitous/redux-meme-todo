@@ -8,6 +8,8 @@ class MemeGenerator extends Component {
     constructor(props) {
         super(props);
         this.addMeme = this.addMeme.bind(this);
+        this.deleteMeme = this.deleteMeme.bind(this);
+        this.updateMeme = this.updateMeme.bind(this);
     }
 
     addMeme(obj){
@@ -26,13 +28,28 @@ class MemeGenerator extends Component {
         });
     }
 
+    updateMeme(obj){
+        console.log("IN UPDATE MEME", obj);
+        this.props.dispatch({
+            type: 'UPDATE',
+            payload: obj
+        });
+    }
+
+    // Update meme not yet done. Need to make Meme itself display
+    // a form for updating so that it can triggerUpdate.
     render() {
         const memes = this.props.memes.map( meme => 
-            <Meme triggerDelete={ () => this.deleteMeme(meme.id) } key={ meme.id } data={ meme } />
+            <Meme triggerDelete={ this.deleteMeme }
+                  triggerUpdate={ this.updateMeme }
+                  key={ meme.id }
+                  topText={ meme.topText }
+                  botText={ meme.botText }
+                  imgUrl={ meme.imgUrl } />
         )
         return (
             <div>
-                <MemeForm triggerAdd={ this.addMeme }/>
+                <MemeForm triggerAdd={ this.addMeme } />
                 { memes }
             </div>
         );
